@@ -17,59 +17,83 @@
         Each time when the game starts, the game will change the values of each crystal.<br/><br/>
     </section>
     <div id = "target"><h2></h2></div>
-    <div id = "winLoseRecord"><h3>wins:0<br>losses:0</h3></div>
+    <div id = "winLoseRecord">
+        <h3 id="record"></h3><br>
+        <h3 id="wins">wins:0</h3><br>
+        <h3 id="losses">losses:0</h3>
+    </div>
     <br>
     <div class="Xtal" id="redXtal"><img src="assets/images/red.png" alt="Red Crystal" height="" width=""></div>
     <div class="Xtal" id="blueXtal"><img src="assets/images/blue.png" alt="Blue Crystal" height="" width=""></div>
     <div class="Xtal" id="yellowXtal"><img src="assets/images/yellow.png" alt="Yellow Crystal" height="" width=""></div>
     <div class="Xtal" id="greenXtal"><img src="assets/images/green.png" alt="Green Crystal" height="" width=""></div>
-    <div id = "total"><h3>Your total score is: </h3></div>
-    <div id = "score"><h2>0</h2></div>
+    <div id ="total"><h3>Your total score is: </h3></div>
+    <div id ="score"><h2>0</h2></div>
 
   <script type="text/javascript">
-    var sum;
+    var score;
     var target;
-    var crystals = {red:,blue:,yellow:,green:};
+    var redXtal;
+    var blueXtal;
+    var yellowXtal;
+    var greenXtal;
     var wins =0;
     var losses = 0;
     function clearInitialize() {
-        sum = 0;
+        score = 0;
         target = getRandomInt()+30;
         console.log(target);
         $("#target").html("<h2>"+target+"</h2>");
         //crystals = ["red","blue","yellow","green"];
 
-        for(var i=0; i<4; i++){ 
-        crystals[i]=getRandomInt();
-        console.log(crystal[i]);
-        }
+        
+        redXtal=getRandomInt();
+        console.log(redXtal);
+
+        blueXtal=getRandomInt();
+        console.log(blueXtal);
+
+        yellowXtal=getRandomInt();
+        console.log(yellowXtal);
+
+        greenXtal=getRandomInt();
+        console.log(greenXtal);
+        
 
 
         function getRandomInt(){
-            return Math.floor(Math.random()*10); 
+            return Math.floor(Math.random()*10+2); 
         }
      }
 
      clearInitialize();
 
-    // $("redXtal").click(function(){
-    //     sum += crystal[0];
-    //     $("score").html("<div>"+sum+"</div>");
-    // });
-    // $("blueXtal").click(function(){
-    //     sum += crystal[1];
-    //     $("score").html("<div>"+sum+"</div>");
-    // });
-    // $("yellowXtal").click(function(){
-    //     sum += crystal[2];
-    //     $("score").html("<div>"+sum+"</div>");
-    // });
-    // $("greenXtal").click(function(){
-    //     sum += crystal[3];
-    //     $("score").html("<div>"+sum+"</div>");
-    // });
+     $("#redXtal").click(function(){
+       score += redXtal;
+       $("#score").html("<h2>"+score+"</h2>");
+     });
+     $("#blueXtal").click(function(){
+       score += blueXtal;
+       $("#score").html("<h2>"+score+"</h2>");
+     });
+     $("#yellowXtal").click(function(){
+       score += yellowXtal;
+       $("#score").html("<h2>"+score+"</h2>");
+     });
 
-    // if(sum ===0){"win!";
+     $("#greenXtal").click(function(){
+       score += greenXtal;
+       $("#score").html("<h2>"+score+"</h2>");
+     });
+ 
+
+       if(score === target){
+           wins++;
+           $("#record").html("<h3>You win!</h3>");
+           $("#wins").html("<h3>wins:"+ wins + "</h3>");
+           clearInitialize();
+       }
+
        
     //    clearInitialize();
     // }
