@@ -5,22 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <header>CrystalsCollector!</header>
+        <header><h1>CrystalsCollector!</h1></header>
     <section>You will be given a random number at the start of the game. <br/><br/>
         There are four crystals below. By clicking on a cyrstal you will add a specific amount of points to your total score.<br/><br/>
         You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.<br/><br/>
         The value of each crystal is hidden from you until you click on it.<br/><br/>
         Each time when the game starts, the game will change the values of each crystal.<br/><br/>
     </section>
-    <div id = "inputNumber"></div>
-    <div id = "winLoseRecord"></div>
-    <img src="assets/images/red.png" alt="Red Crystal" height="" width="">
-    <img src="assets/images/blue.png" alt="Blue Crystal" height="" width="">
-    <img src="assets/images/yellow.png" alt="Yellow Crystal" height="" width="">
-    <img src="assets/images/green.png" alt="Green Crystal" height="" width="">
-    <div>Your total score is: </div>
-    <div id = "score"></div>
+    <div id = "target"><h2></h2></div>
+    <div id = "winLoseRecord"><h3>wins:0<br>losses:0</h3></div>
+    <br>
+    <div class="Xtal" id="redXtal"><img src="assets/images/red.png" alt="Red Crystal" height="" width=""></div>
+    <div class="Xtal" id="blueXtal"><img src="assets/images/blue.png" alt="Blue Crystal" height="" width=""></div>
+    <div class="Xtal" id="yellowXtal"><img src="assets/images/yellow.png" alt="Yellow Crystal" height="" width=""></div>
+    <div class="Xtal" id="greenXtal"><img src="assets/images/green.png" alt="Green Crystal" height="" width=""></div>
+    <div id = "total"><h3>Your total score is: </h3></div>
+    <div id = "score"><h2>0</h2></div>
+
+  <script type="text/javascript">
+    var sum;
+    var target;
+    var crystals = {red:,blue:,yellow:,green:};
+    var wins =0;
+    var losses = 0;
+    function clearInitialize() {
+        sum = 0;
+        target = getRandomInt()+30;
+        console.log(target);
+        $("#target").html("<h2>"+target+"</h2>");
+        //crystals = ["red","blue","yellow","green"];
+
+        for(var i=0; i<4; i++){ 
+        crystals[i]=getRandomInt();
+        console.log(crystal[i]);
+        }
+
+
+        function getRandomInt(){
+            return Math.floor(Math.random()*10); 
+        }
+     }
+
+     clearInitialize();
+
+    // $("redXtal").click(function(){
+    //     sum += crystal[0];
+    //     $("score").html("<div>"+sum+"</div>");
+    // });
+    // $("blueXtal").click(function(){
+    //     sum += crystal[1];
+    //     $("score").html("<div>"+sum+"</div>");
+    // });
+    // $("yellowXtal").click(function(){
+    //     sum += crystal[2];
+    //     $("score").html("<div>"+sum+"</div>");
+    // });
+    // $("greenXtal").click(function(){
+    //     sum += crystal[3];
+    //     $("score").html("<div>"+sum+"</div>");
+    // });
+
+    // if(sum ===0){"win!";
+       
+    //    clearInitialize();
+    // }
+    // //if(sum < total){"keep going";}
+    // if(sumv> total){
+    //     "you lose!";
+    //     clearInitialize();
+    // }
+  </script>
 </body>
 </html>

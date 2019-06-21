@@ -1,0 +1,68 @@
+html{
+    background: url("bg pattern.png")
+}
+div{
+    margin:10px 5px;
+}
+
+img{
+    height:150px;
+    width:100px;
+}
+
+.Xtal{
+    
+   
+    display:inline-block;
+}
+
+
+header{
+    padding: 20px 5px;
+    margin:5px;
+    background-color: orange;
+    color: white; 
+    display: inline-block;
+}
+
+section{
+    background-color: bisque;
+    color: green;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    margin:10px;
+    padding: 20px 5px 40px 5px;
+    width:60%;
+}
+
+#target{
+    height:200px;
+    width:400px;
+    background-color: yellowgreen;
+    display:inline-block;
+    
+}
+
+#winLoseRecord{
+    height: 200px;
+    width:100px;
+    background-color: aquamarine;
+    display: inline-block;
+
+}
+
+#total{
+    background-color: #006600;
+    color:white;
+    width:400px;
+    height:50px;
+   
+    
+}
+
+#score{
+    background-color: #006600;
+    color:white;
+    width:400px;
+    height:200px;
+}
