@@ -9,18 +9,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-        <header><h1>CrystalsCollector!</h1></header>
+    <header><h1>CrystalsCollector!</h1></header>
     <section>You will be given a random number at the start of the game. <br/><br/>
         There are four crystals below. By clicking on a cyrstal you will add a specific amount of points to your total score.<br/><br/>
         You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.<br/><br/>
         The value of each crystal is hidden from you until you click on it.<br/><br/>
         Each time when the game starts, the game will change the values of each crystal.<br/><br/>
     </section>
-    <div id = "target"><h2></h2></div>
-    <div id = "winLoseRecord">
-        <h3 id="record"></h3><br>
+    <div>
+      <div id = "target"><h2></h2></div>
+      <div id = "winLoseRecord">
+        <h3 id="record"> </h3><br>
         <h3 id="wins">wins:0</h3><br>
         <h3 id="losses">losses:0</h3>
+      </div>
     </div>
     <br>
     <div class="Xtal" id="redXtal"><img src="assets/images/red.png" alt="Red Crystal" height="" width=""></div>
@@ -30,78 +32,9 @@
     <div id ="total"><h3>Your total score is: </h3></div>
     <div id ="score"><h2>0</h2></div>
 
-  <script type="text/javascript">
-    var score;
-    var target;
-    var redXtal;
-    var blueXtal;
-    var yellowXtal;
-    var greenXtal;
-    var wins =0;
-    var losses = 0;
-    function clearInitialize() {
-        score = 0;
-        target = getRandomInt()+30;
-        console.log(target);
-        $("#target").html("<h2>"+target+"</h2>");
-        //crystals = ["red","blue","yellow","green"];
-
-        
-        redXtal=getRandomInt();
-        console.log(redXtal);
-
-        blueXtal=getRandomInt();
-        console.log(blueXtal);
-
-        yellowXtal=getRandomInt();
-        console.log(yellowXtal);
-
-        greenXtal=getRandomInt();
-        console.log(greenXtal);
-        
-
-
-        function getRandomInt(){
-            return Math.floor(Math.random()*10+2); 
-        }
-     }
-
-     clearInitialize();
-
-     $("#redXtal").click(function(){
-       score += redXtal;
-       $("#score").html("<h2>"+score+"</h2>");
-     });
-     $("#blueXtal").click(function(){
-       score += blueXtal;
-       $("#score").html("<h2>"+score+"</h2>");
-     });
-     $("#yellowXtal").click(function(){
-       score += yellowXtal;
-       $("#score").html("<h2>"+score+"</h2>");
-     });
-
-     $("#greenXtal").click(function(){
-       score += greenXtal;
-       $("#score").html("<h2>"+score+"</h2>");
-     });
- 
-
-       if(score === target){
-           wins++;
-           $("#record").html("<h3>You win!</h3>");
-           $("#wins").html("<h3>wins:"+ wins + "</h3>");
-           clearInitialize();
-       }
-
-       
-    //    clearInitialize();
-    // }
-    // //if(sum < total){"keep going";}
-    // if(sumv> total){
-    //     "you lose!";
-    //     clearInitialize();
-    // }
+  <script type="text/javascript" src="assets/javascript/game.js">
+    
+    
   </script>
 </body>
 </html>
